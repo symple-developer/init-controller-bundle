@@ -1,0 +1,3 @@
+# Symple Initializable Controller
+
+Documentation will be soon...
