@@ -1,7 +1,7 @@
 {
     "name": "symple-dev/init-controller-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony Initializable Controllers",
+    "description": "Symple Initializable Controller",
     "keywords": ["symfony", "symple", "initializable", "controller"],
     "homepage": "http://symple-dev.ru",
     "license": "MIT",

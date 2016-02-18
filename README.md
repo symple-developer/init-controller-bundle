@@ -4,11 +4,21 @@ The **Symple Initializable Controller** Bundle permits initialization Symfony co
 
 Content:
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#config)
 - [Usage](#usage)
   - [Initializable Controller Interface](#usage-interface)
   - [Init Annotation](#usage-annotation)
+
+<a name="requirements"></a>
+## Requirements
+
+- PHP >= 5.5.9
+- [symfony/config](https://github.com/symfony/config) ~3.0
+- [symfony/dependency-injection](https://github.com/symfony/dependency-injection) ~3.0
+- [symfony/http-kernel](https://github.com/symfony/http-kernel) ~3.0
+- [doctrine/annotations](https://github.com/doctrine/annotations) ~1.2
 
 <a name="installation"></a>
 ## Installation
