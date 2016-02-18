@@ -1,6 +1,6 @@
 # Symple Initializable Controller
 
-The **Symple Initializable Controller** Bundle permits initialization Symfony controllers before invocation of action methods.
+The **Symple Initializable Controller** Bundle permits initialization of Symfony controllers before invocation of action methods.
 
 Content:
 
