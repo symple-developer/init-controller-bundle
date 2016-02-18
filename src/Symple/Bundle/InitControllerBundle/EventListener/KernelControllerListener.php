@@ -59,7 +59,11 @@ class KernelControllerListener
 
             foreach ($annotations as $annotation) {
                 if ($annotation instanceof Init) {
-                    $initMethods[] = ['method' => $method, 'priority' => $annotation->priority];
+                    $initMethods[] = [
+                        'method' => $method,
+                        'args' => $annotation->args,
+                        'priority' => $annotation->priority
+                    ];
                 }
             }
         }
@@ -76,19 +80,24 @@ class KernelControllerListener
         $methods = $reflector->getMethods(\ReflectionMethod::IS_PUBLIC);
         $initMethods = $this->getInitMethods($methods);
         usort($initMethods, function($a, $b) { return $b['priority'] - $a['priority']; });
-        $this->invokeInitMethods($initMethods, $controller[0]);
+        $this->invokeInitMethods($controller[0], $initMethods);
     }
 
     /**
-     * @param array $initMethods
      * @param object $object
+     * @param array $initMethods
      */
-    protected function invokeInitMethods(array $initMethods, $object)
+    protected function invokeInitMethods($object, array $initMethods)
     {
         foreach ($initMethods as $initMethod) {
             /** @var \ReflectionMethod $method */
             $method = $initMethod['method'];
-            $method->invoke($object);
+
+            if (count($initMethod['args'])) {
+                $method->invokeArgs($object, $initMethod['args']);
+            } else {
+                $method->invoke($object);
+            }
         }
     }
 }

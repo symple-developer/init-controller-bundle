@@ -20,6 +20,11 @@ namespace Symple\Bundle\InitControllerBundle\Annotation;
 class Init
 {
     /**
+     * @var array
+     */
+    public $args = [];
+
+    /**
      * @var int
      */
     public $priority = 0;
