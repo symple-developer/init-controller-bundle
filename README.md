@@ -1,13 +1,14 @@
 # Symple Initializable Controller
 
-The **Symple Initializable Controller** Bundle allows to initialize Symfony controllers before action method will be invoked.
+The **Symple Initializable Controller** Bundle permits initialization Symfony controllers before invocation of action methods.
 
 Content:
 
 - [Installation](#installation)
-- [Using](#using)
-  - [Initializable Controller Interface](#using-interface)
-  - [Init Annotation](#using-annotation)
+- [Configuration](#config)
+- [Usage](#usage)
+  - [Initializable Controller Interface](#usage-interface)
+  - [Init Annotation](#usage-annotation)
 
 <a name="installation"></a>
 ## Installation
@@ -18,10 +19,20 @@ The suggested installation method is via [composer](https://getcomposer.org):
 php composer.phar require symple-dev/init-controller-bundle:1.0.*
 ```
 
-<a name="using"></a>
-## Using
+<a name="config"></a>
+## Configuration
 
-<a name="using-interface"></a>
+You can enable or disable **Symple Initializable Controller** in app/config.yml (default enabled):
+
+``` yaml
+init_controller:
+    enabled: true
+```
+
+<a name="usage"></a>
+## Usage
+
+<a name="usage-interface"></a>
 ### Initializable Controller Interface
 
 Implement the interface **Symple\Bundle\InitControllerBundle\Controller\InitControllerInterface** in your Controller.
@@ -38,7 +49,7 @@ class MyController extends Controller implements InitControllerInterface
     // ...
 }
 ```
-<a name="using-annotation"></a>
+<a name="usage-annotation"></a>
 ### Init Annotation
 
 The annotation **@Symple\Bundle\InitControllerBundle\Annotation\Init** tells that this method should be invoked before some action method (on _kernel.controller_ event).
@@ -85,7 +96,7 @@ class MyController extends Controller implements InitControllerInterface
 
 In this example following methods will be invoked before indexAction (or another action method):
 
-1. initialize1();
-2. initialize2(123, true);
+1. `initialize1();`
+2. `initialize2(123, true);`
 
 You can apply multiple **@Init** annotations to the same method.
